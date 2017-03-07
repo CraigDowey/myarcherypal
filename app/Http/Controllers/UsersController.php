@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserDeleteRequest;
 use App\Http\Requests\UsersEditRequest;
 use App\Http\Requests\UsersRequest;
 use App\Photo;
@@ -155,17 +156,21 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(UserDeleteRequest $request, $id)
     {
         $user = User::findOrFail($id);
 
-        unlink(public_path() . $user->photo->file);
 
-        $user->delete();
+        if($file = $request->file('photo_id')){
 
-//        Session::flash('deleted_user', 'The User has been Deleted');
+            unlink(public_path() . $user->photo->file);
 
-        return redirect('/home');
+        } else {
+
+            $user->delete();
+
+            return redirect('/home');
+        }
 
     }
 }

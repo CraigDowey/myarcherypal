@@ -33,6 +33,4 @@ Route::group(['middleware'=>'admin'] ,function(){
 
 });
 
-
-
 Route::resource('/welcome','Controller');
