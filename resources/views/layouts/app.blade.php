@@ -63,12 +63,20 @@
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                <i class="fa fa-user fa-fw"></i> {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/edit-user') }}"><i class="fa fa-btn"></i>Edit Account Details</a></li>
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                @if (Auth::user()->isAdmin())
+                                    <li><a href="{{ url('/admin') }}"><i class="fa fa-btn"></i>Admin Section</a></li>
+                                    <li><a href="{{ url('/edit-user') }}"><i class="fa fa-btn"></i>Edit Account Details</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                @elseif (Auth::user()->isUser())
+                                    <li><a href="{{ url('/edit-user') }}"><i class="fa fa-btn"></i>Edit Account Details</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                @endif
                             </ul>
                         </li>
                     @endif

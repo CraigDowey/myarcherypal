@@ -49,28 +49,13 @@
 
 
         <ul class="nav navbar-top-links navbar-right">
-
-
             <!-- /.dropdown -->
             <li class="dropdown">
-
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-
-                    {{--@if($users)--}}
-
-                    {{--@foreach($users as $user)--}}
-
-                    {{--<i> {{$user->name . ": "}}</i>--}}
-
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                     <i class="fa fa-user fa-fw"></i> {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
-
-                    {{--@endforeach--}}
-                    {{--@endif--}}
                 </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="{{ url('/home') }}"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     </li>
                     <li class="divider"></li>
                     <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -96,7 +81,7 @@
                         <!-- /input-group -->
                     </li>
                     <li>
-                        <a href="/admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="{{route('admin.index')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
 
                     <li>

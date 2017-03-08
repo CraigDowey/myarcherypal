@@ -33,7 +33,7 @@
                             @if($scores)
                                 @foreach($scores as $score)
                                     <tr>
-                                        <td><img height="50" src="{{$score->photo ? URL::to($score->photo->file) : 'http://placehold.it/400x400'}}" ></td>
+                                        <td><img height="50" src="{{$score->photo ? URL::to($score->photo->file) : 'http://localhost/my-archery-pal/public/images/placeholder2.png'}}" ></td>
                                         <td>{{$score->round ? $score->round->name : 'No Round Selected'}}</td>
                                         <td>{{$score->average}}</td>
                                         <td>{{$score->score}}</td>
