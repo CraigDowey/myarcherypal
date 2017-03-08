@@ -10,15 +10,10 @@ use App\Http\Requests;
 
 class AdminController extends Controller
 {
-
     public function index()
     {
-
         $users = User::all();
-
         $scores = Scores::all();
-
         return view('admin.index', compact('scores', 'users'));
     }
-
 }

@@ -46,6 +46,11 @@
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
+
+                @if (Auth::guest())
+
+
+                @else
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
                 </ul>
@@ -53,6 +58,8 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/new-round') }}">New Round</a></li>
                 </ul>
+                @endif
+
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">

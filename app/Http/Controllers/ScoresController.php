@@ -29,9 +29,7 @@ class ScoresController extends Controller
     public function index()
     {
         $user = User::find(Auth::id());
-
         $rounds = Round::lists('name','id')->all();
-
         return view('new-round', compact('user', 'rounds'));
     }
 
@@ -42,11 +40,8 @@ class ScoresController extends Controller
      */
     public function create()
     {
-
         $rounds = Round::lists('name', 'id')->all();
-
         return view('new-round', compact('rounds'));
-
     }
 
     /**
@@ -57,27 +52,16 @@ class ScoresController extends Controller
      */
     public function store(ScoresCreateRequest $request)
     {
-
         $input = $request->all();
-
         $user = Auth::user();
-
         if($file = $request->file('photo_id')){
-
             $name = time() . $file->getClientOriginalName();
-
             $file->move('images', $name);
-
             $photo = Photo::create(['file'=>$name]);
-
             $input['photo_id'] = $photo->id;
-
         }
-
         $user->scores()->create($input);
-
         return redirect('/home');
-
     }
 
     /**
@@ -88,7 +72,9 @@ class ScoresController extends Controller
      */
     public function edit($id)
     {
-//        return view('/home');
+//        $scores = Scores::findOrFail($id);
+//        $rounds = Round::lists('name','id')->all();
+//        return view('home', compact('rounds', 'scores'));
     }
 
     /**
@@ -100,7 +86,15 @@ class ScoresController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+        if($file = $request->file('photo_id')){
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);
+            $photo = Photo::create(['file'=>$name]);
+            $input['photo_id'] = $photo->id;
+        }
+        Auth::user()->scores()->whereId($id)->first()->update($input);
+        return redirect('/home');
     }
 
     /**
@@ -109,28 +103,16 @@ class ScoresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $round = Round::findOrFail($id);
-
-        if($file = $this->file('photo_id')){
-
-            unlink(public_path() . $round->photo->file);
-
+        $score = Scores::findOrFail($id);
+        if($file = $request->file('photo_id')){
+            unlink(public_path() . $score->photo->file);
+            $score->delete();
+            return redirect('/admin/users');
         } else {
-
-            $round->delete();
-
-            return redirect('/home');
+            $score->delete();
+            return redirect('/admin/users');
         }
     }
-
-
-//    public function post($id){
-//
-//        $round = Round::findOrFail($id);
-//
-//        return view('home', compact('round'));
-//
-//    }
 }

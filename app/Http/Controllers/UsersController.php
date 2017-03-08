@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserDeleteRequest;
+use App\Http\Requests\DeleteRequest;
 use App\Http\Requests\UsersEditRequest;
 use App\Http\Requests\UsersRequest;
 use App\Photo;
@@ -30,11 +30,8 @@ class UsersController extends Controller
     public function index()
     {
         $user = User::find(Auth::id());
-
         $styles = Style::lists('name','id')->all();
-
         return view('edit-user', compact('user', 'styles'));
-
     }
 
     /**
@@ -45,35 +42,20 @@ class UsersController extends Controller
      */
     public function store(UsersRequest $request)
     {
-
         if(trim($request->password) == ''){
-
             $input = $request->except('password');
-
         } else {
-
             $input = $request->all();
-
             $input['password'] = bcrypt($request->password);
-
         }
-
         if($file = $request->file('photo_id')){
-
             $name = time() . $file->getClientOriginalName();
-
             $file->move('images', $name);
-
             $photo = Photo::create(['file'=>$name]);
-
             $input['photo_id'] = $photo->id;
-
         }
-
         User::create($input);
-
         return redirect('home');
-
     }
 
     /**
@@ -84,13 +66,9 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-
         $user = User::findOrFail($id);
-
         $styles = Style::lists('name','id')->all();
-
         return view('home', compact('user','styles'));
-
     }
 
     /**
@@ -102,37 +80,21 @@ class UsersController extends Controller
      */
     public function update(UsersEditRequest $request, $id)
     {
-
         $user = User::findOrFail($id);
-
         if(trim($request->password) == ''){
-
             $input = $request->except('password');
-
         } else {
-
             $input = $request->all();
-
             $input['password'] = bcrypt($request->password);
-
         }
-
         if($file = $request->file('photo_id')){
-
             $name = time() . $file->getClientOriginalName();
-
             $file->move('images', $name);
-
             $photo = Photo::create(['file'=>$name]);
-
             $input['photo_id'] = $photo->id;
-
         }
-
         $user->update($input);
-
         return redirect('home');
-
     }
 
     /**
@@ -141,21 +103,14 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserDeleteRequest $request, $id)
+    public function destroy(DeleteRequest $request, $id)
     {
         $user = User::findOrFail($id);
-
-
         if($file = $request->file('photo_id')){
-
             unlink(public_path() . $user->photo->file);
-
         } else {
-
             $user->delete();
-
             return redirect('/home');
         }
-
     }
 }

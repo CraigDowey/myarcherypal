@@ -38,9 +38,7 @@
                                         <td>{{$score->average}}</td>
                                         <td>{{$score->score}}</td>
                                         <td>{{$score->created_at->diffForHumans()}}</td>
-
                                         <td>
-
                                         {!! Form::open(['method'=>'DELETE', 'action'=>['HomeController@destroy', $score->id]]) !!}
 
                                         <div class="form-group">
@@ -49,7 +47,6 @@
 
                                         {!!  Form::close() !!}
                                         </td>
-
                                     </tr>
                                 @endforeach
                             @endif

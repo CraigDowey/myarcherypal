@@ -39,13 +39,11 @@
                                     {!! Form::text('score', null,['class'=>'form-control']) !!}
                                 </div>
 
-
                                 <div class="form-group">
                                     {!!  Form::submit('Upload Score', ['class'=>'btn btn-primary']) !!}
                                 </div>
 
                                 {!!  Form::close() !!}
-
                             </div>
                         </div>
 

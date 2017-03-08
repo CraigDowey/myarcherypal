@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 
 
-
 @section('content')
+
 
     <h1>Scores</h1>
 

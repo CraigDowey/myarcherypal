@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Round;
+use App\Http\Requests\DeleteRequest;
 use App\Scores;
 use App\User;
 use Illuminate\Http\Request;
@@ -28,23 +28,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $scores = Scores::all();
         $userInfo = User::find(Auth::id());
+        $scores = Scores::with('user')->get();
         return view('home', compact('userInfo', 'scores'));
     }
 
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $round = Round::findOrFail($id);
-
-        if($file = $this->file('photo_id')){
-
-            unlink(public_path() . $round->photo->file);
-
+        $scores = Scores::findOrFail($id);
+        if($file = $request->file('photo_id')){
+            unlink(public_path() . $scores->photo->file);
+            $scores->delete();
+            return redirect('/home');
         } else {
-
-            $round->delete();
-
+            $scores->delete();
             return redirect('/home');
         }
     }

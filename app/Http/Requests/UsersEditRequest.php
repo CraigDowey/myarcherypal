@@ -23,12 +23,6 @@ class UsersEditRequest extends Request
      */
     public function rules()
     {
-        return [
-
-            'name' => 'required',
-            'email' => 'required',
-            'style_id' => 'required',
-
-        ];
+        return ['name' => 'required', 'email' => 'required', 'style_id' => 'required'];
     }
 }

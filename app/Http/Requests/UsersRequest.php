@@ -23,13 +23,6 @@ class UsersRequest extends Request
      */
     public function rules()
     {
-        return [
-
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'style_id' => 'required',
-
-        ];
+        return ['name' => 'required', 'email' => 'required', 'password' => 'required', 'style_id' => 'required'];
     }
 }

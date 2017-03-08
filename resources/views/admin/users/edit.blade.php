@@ -1,25 +1,18 @@
 @extends('layouts.admin')
 
 
-
 @section('content')
-
 
     <h1>Edit Users</h1>
 
     <div class="row">
 
-
         <div class="col-sm-3">
 
             <img src="{{$user->photo ? URL::to($user->photo->file) : 'http://placehold.it/400x400'}}" class="img-responsive img-rounded">
-
         </div>
 
-
         <div class="col-sm-9">
-
-
 
             {!! Form::model($user, ['method'=>'PATCH', 'action'=> ['AdminUsersController@update', $user->id],'files'=>true]) !!}
 
@@ -38,10 +31,10 @@
                 {!! Form::file('photo_id', null, ['class'=>'form-control']) !!}
             </div>
 
-            {{--<div class="form-group">--}}
-                {{--{!! Form::label('password', 'Password:') !!}--}}
-                {{--{!! Form::password('password', ['class'=>'form-control']) !!}--}}
-            {{--</div>--}}
+            <div class="form-group">
+                {!! Form::label('password', 'Password:') !!}
+                {!! Form::password('password', ['class'=>'form-control']) !!}
+            </div>
 
             <div class="form-group">
                 {!! Form::label('style_id', 'Style:') !!}
@@ -52,7 +45,6 @@
                 {!! Form::label('role_id', 'Role:') !!}
                 {!! Form::select('role_id', [''=>'Choose Options'] + $roles, null, ['class'=>'form-control']) !!}
             </div>
-
 
             <div class="form-group">
                 {!!  Form::submit('Update User', ['class'=>'btn btn-primary col-sm-6']) !!}
@@ -67,16 +59,11 @@
             </div>
 
             {!!  Form::close() !!}
-
         </div>
-
     </div>
 
     <div class="row">
-
         @include('include.form-errors')
-
     </div>
-
 
 @stop
