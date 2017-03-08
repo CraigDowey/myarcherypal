@@ -16,6 +16,12 @@ use Illuminate\Support\Facades\Session;
 
 class UsersController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -28,16 +34,6 @@ class UsersController extends Controller
         $styles = Style::lists('name','id')->all();
 
         return view('edit-user', compact('user', 'styles'));
-
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
 
     }
 
@@ -78,17 +74,6 @@ class UsersController extends Controller
 
         return redirect('home');
 
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**

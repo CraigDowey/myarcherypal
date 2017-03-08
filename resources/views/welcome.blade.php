@@ -28,6 +28,7 @@
                         <table class="table">
                             <thead>
                             <tr>
+                                <th>Photo</th>
                                 <th>Name</th>
                                 <th>Round</th>
                                 <th>Average</th>
@@ -54,6 +55,7 @@
                         <table class="table">
                             <thead>
                             <tr>
+                                <th>Photo</th>
                                 <th>Name</th>
                                 <th>Round</th>
                                 <th>Average</th>
@@ -80,6 +82,7 @@
                         <table class="table">
                             <thead>
                             <tr>
+                                <th>Photo</th>
                                 <th>Name</th>
                                 <th>Round</th>
                                 <th>Average</th>
@@ -106,6 +109,7 @@
                         <table class="table">
                             <thead>
                             <tr>
+                                <th>Photo</th>
                                 <th>Name</th>
                                 <th>Round</th>
                                 <th>Average</th>

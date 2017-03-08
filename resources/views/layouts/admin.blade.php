@@ -114,24 +114,24 @@
                         <!-- /.nav-second-level -->
                     </li>
 
-                    {{--<li>--}}
-                        {{--<a href="#"><i class="fa fa-wrench fa-fw"></i> Posts<span class="fa arrow"></span></a>--}}
-                        {{--<ul class="nav nav-second-level">--}}
-                            {{--<li>--}}
-                                {{--<a href="{{route('admin.posts.index')}}">All Posts</a>--}}
-                            {{--</li>--}}
+                    <li>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Scores <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{{route('admin.scores.index')}}">All Scores</a>
+                            </li>
 
-                            {{--<li>--}}
-                                {{--<a href="{{route('admin.posts.create')}}">Create Post</a>--}}
-                            {{--</li>--}}
+                            <li>
+                                <a href="{{route('admin.scores.create')}}">Create Scores</a>
+                            </li>
 
                             {{--<li>--}}
                                 {{--<a href="{{route('admin.comments.index')}}">All Comments</a>--}}
                             {{--</li>--}}
 
-                        {{--</ul>--}}
-                        {{--<!-- /.nav-second-level -->--}}
-                    {{--</li>--}}
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
 
 
                     {{--<li>--}}

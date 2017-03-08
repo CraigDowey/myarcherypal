@@ -15,22 +15,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('/welcome', 'Controller');
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::resource('/edit-user','UsersController');
+Route::resource('/home', 'HomeController');
 
-Route::get('/admin', function(){
+Route::resource('/edit-user', 'UsersController');
 
-    return view('admin.index');
-
-});
+Route::resource('/new-round', 'ScoresController');
 
 Route::group(['middleware'=>'admin'] ,function(){
 
-    Route::resource('admin/users','AdminUsersController');
+    Route::get('/admin', function(){
+
+        return view('admin.index');
+
+    });
+
+    Route::resource('admin/users', 'AdminUsersController');
+    Route::resource('admin/scores', 'AdminScoresController');
 
 });
-
-Route::resource('/welcome','Controller');

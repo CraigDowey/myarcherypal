@@ -42,15 +42,17 @@ class User extends Authenticatable
 
     }
 
+    public function scores(){
+
+        return $this->hasMany('App\Scores');
+
+
+    }
+
     public function isAdmin(){
-
         if($this->role->name == "Admin"){
-
             return true;
-
         }
-
         return false;
-
     }
 }

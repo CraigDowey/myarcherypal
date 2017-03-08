@@ -10,8 +10,6 @@
                     {{$userInfo->style ? $userInfo->style->name : 'Dashboard'}}
                 </div>
 
-
-
                 <div class="panel-body">
 
                     <div class="col-sm-3">
@@ -19,31 +17,42 @@
                     </div>
 
                     <div class="col-sm-9">
-                        {{--You are logged in {{$userInfo->name}}!--}}
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Style</th>
+                                <th>Score Sheet</th>
                                 <th>Round</th>
                                 <th>Average</th>
                                 <th>Score</th>
+                                <th>Posted</th>
+                                <th>Delete Score</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            {{--@if($users)--}}
-                                {{--@foreach($users as $user)--}}
-                                    {{--<tr>--}}
-                                        {{--<td>{{$user->id}}</td>--}}
-                                        {{--<td><img height="50" src="{{$user->photo ? URL::to($user->photo->file) : 'http://placehold.it/50x50'}}" ></td>--}}
-                                        {{--<td><a href="{{route('admin.users.edit', $user->id)}}">{{$user->name}}</a> </td>--}}
-                                        {{--<td>{{$user->email}}</td>--}}
-                                        {{--<td>{{$user->style? $user->style->name : 'No Style Selected'}}</td>--}}
-                                        {{--<td>{{$user->created_at->diffForHumans()}}</td>--}}
-                                    {{--</tr>--}}
-                                {{--@endforeach--}}
-                            {{--@endif--}}
+                            @if($scores)
+                                @foreach($scores as $score)
+                                    <tr>
+                                        <td><img height="50" src="{{$score->photo ? URL::to($score->photo->file) : 'http://placehold.it/400x400'}}" ></td>
+                                        <td>{{$score->round ? $score->round->name : 'No Round Selected'}}</td>
+                                        <td>{{$score->average}}</td>
+                                        <td>{{$score->score}}</td>
+                                        <td>{{$score->created_at->diffForHumans()}}</td>
+
+                                        <td>
+
+                                        {!! Form::open(['method'=>'DELETE', 'action'=>['HomeController@destroy', $score->id]]) !!}
+
+                                        <div class="form-group">
+                                            {!!  Form::submit('Delete', ['class'=>'btn btn-danger ']) !!}
+                                        </div>
+
+                                        {!!  Form::close() !!}
+                                        </td>
+
+                                    </tr>
+                                @endforeach
+                            @endif
 
                             </tbody>
                         </table>
