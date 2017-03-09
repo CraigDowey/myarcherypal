@@ -109,10 +109,10 @@ class ScoresController extends Controller
         if($file = $request->file('photo_id')){
             unlink(public_path() . $score->photo->file);
             $score->delete();
-            return redirect('/admin/users');
+            return redirect('/home');
         } else {
             $score->delete();
-            return redirect('/admin/users');
+            return redirect('/home');
         }
     }
 }

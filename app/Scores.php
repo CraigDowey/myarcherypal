@@ -19,4 +19,6 @@ class Scores extends Model
     public function round(){
         return $this->belongsTo('App\Round');
     }
+
+
 }

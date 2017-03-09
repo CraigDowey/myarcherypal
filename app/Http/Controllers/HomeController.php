@@ -29,7 +29,7 @@ class HomeController extends Controller
     public function index()
     {
         $userInfo = User::find(Auth::id());
-        $scores = Scores::with('user')->get();
+        $scores = User::find(Auth::id())->scores;
         return view('home', compact('userInfo', 'scores'));
     }
 

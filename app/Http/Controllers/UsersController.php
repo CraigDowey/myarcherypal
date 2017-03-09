@@ -103,11 +103,13 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DeleteRequest $request, $id)
+    public function destroy(Request $request, $id)
     {
         $user = User::findOrFail($id);
         if($file = $request->file('photo_id')){
             unlink(public_path() . $user->photo->file);
+            $user->delete();
+            return redirect('/home');
         } else {
             $user->delete();
             return redirect('/home');

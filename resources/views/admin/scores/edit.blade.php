@@ -9,7 +9,7 @@
     <div class="row">
 
         <div class="col-sm-3">
-            <img class="img-responsive" src="{{$scores->photo ? public_path() . $scores->photo->file : 'http://placehold.it/400x400'}}">
+            <img class="img-responsive" src="{{$scores->photo ? URL::to($scores->photo->file) : 'http://placehold.it/400x400'}}">
         </div>
 
         <div class="col-sm-9">

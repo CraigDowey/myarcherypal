@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\DeleteRequest;
 use App\Http\Requests\UsersEditRequest;
 use App\Http\Requests\UsersRequest;
 use App\Photo;
@@ -109,7 +108,7 @@ class AdminUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DeleteRequest $request, $id)
+    public function destroy(Request $request, $id)
     {
         $user = User::findOrFail($id);
         if($file = $request->file('photo_id')){

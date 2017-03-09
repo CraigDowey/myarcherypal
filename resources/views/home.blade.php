@@ -42,7 +42,7 @@
                                         {!! Form::open(['method'=>'DELETE', 'action'=>['HomeController@destroy', $score->id]]) !!}
 
                                         <div class="form-group">
-                                            {!!  Form::submit('Delete', ['class'=>'btn btn-danger ']) !!}
+                                        {!!  Form::submit('Delete', ['class'=>'btn btn-danger ']) !!}
                                         </div>
 
                                         {!!  Form::close() !!}
@@ -50,6 +50,27 @@
                                     </tr>
                                 @endforeach
                             @endif
+
+                            {{--@if($userInfo)--}}
+                                {{--@foreach($userInfo as $user)--}}
+                                    {{--<tr>--}}
+                                        {{--<td><img height="50" src="{{$user->photo ? URL::to($user->photo->file) : 'http://localhost/my-archery-pal/public/images/placeholder2.png'}}" ></td>--}}
+{{--                                        <td>{{$user->score->round ? $user->score->round->name : 'No Round Selected'}}</td>--}}
+                                        {{--<td>{{$user->average}}</td>--}}
+{{--                                        <td>{{$user->name}}</td>--}}
+                                        {{--<td>{{$user->created_at->diffForHumans()}}</td>--}}
+                                        {{--<td>--}}
+                                            {{--{!! Form::open(['method'=>'DELETE', 'action'=>['HomeController@destroy', $user->id]]) !!}--}}
+
+                                            {{--<div class="form-group">--}}
+                                                {{--{!!  Form::submit('Delete', ['class'=>'btn btn-danger ']) !!}--}}
+                                            {{--</div>--}}
+
+                                            {{--{!!  Form::close() !!}--}}
+                                        {{--</td>--}}
+                                    {{--</tr>--}}
+                                {{--@endforeach--}}
+                            {{--@endif--}}
 
                             </tbody>
                         </table>
