@@ -56,7 +56,6 @@
                         </div>#
 
                         <script>
-
                             function ConfirmDelete()
                             {
                                 var x = confirm("Are you sure you want to delete?");
@@ -65,7 +64,6 @@
                                 else
                                     return false;
                             }
-
                         </script>
 
                         <div class="row">
