@@ -35,11 +35,6 @@
                                     </div>
 
                                     <div class="form-group">
-                                        {!! Form::label('password', 'Password:') !!}
-                                        {!! Form::password('password', ['class'=>'form-control']) !!}
-                                    </div>
-
-                                    <div class="form-group">
                                         {!! Form::label('style_id', 'Style:') !!}
                                         {!! Form::select('style_id', [''=>'Choose Options'] + $styles, null, ['class'=>'form-control']) !!}
                                     </div>
@@ -50,7 +45,7 @@
 
                                 {!!  Form::close() !!}
 
-                                {!! Form::open(['method'=>'DELETE', 'action'=>['UsersController@destroy', $user->id]]) !!}
+                                {!! Form::open(['method'=>'DELETE', 'action'=>['UsersController@destroy', $user->id], 'onsubmit' => 'return ConfirmDelete()']) !!}
 
                                     <div class="form-group">
                                         {!!  Form::submit('Delete User', ['class'=>'btn btn-danger col-sm-6']) !!}
@@ -58,7 +53,20 @@
 
                                 {!!  Form::close() !!}
                             </div>
-                        </div>
+                        </div>#
+
+                        <script>
+
+                            function ConfirmDelete()
+                            {
+                                var x = confirm("Are you sure you want to delete?");
+                                if (x)
+                                    return true;
+                                else
+                                    return false;
+                            }
+
+                        </script>
 
                         <div class="row">
                                 @include('include.form-errors')
