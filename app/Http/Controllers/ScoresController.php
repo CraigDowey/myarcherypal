@@ -97,22 +97,22 @@ class ScoresController extends Controller
         return redirect('/home');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Request $request, $id)
-    {
-        $score = Scores::findOrFail($id);
-        if($file = $request->file('photo_id')){
-            unlink(public_path() . $score->photo->file);
-            $score->delete();
-            return redirect('/home');
-        } else {
-            $score->delete();
-            return redirect('/home');
-        }
-    }
+//    /**
+//     * Remove the specified resource from storage.
+//     *
+//     * @param  int  $id
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function destroy(Request $request, $id)
+//    {
+//        $score = Scores::findOrFail($id);
+//        if($file = $request->file('photo_id')){
+//            unlink(public_path() . $score->photo->file);
+//            $score->delete();
+//            return redirect('/home');
+//        } else {
+//            $score->delete();
+//            return redirect('/home');
+//        }
+//    }
 }

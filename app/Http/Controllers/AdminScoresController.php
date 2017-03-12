@@ -98,14 +98,14 @@ class AdminScoresController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $score = Scores::findOrFail($id);
-        if($file = $request->file('photo_id')){
-            unlink(public_path() . $score->photo->file);
-            $score->delete();
-            return redirect('/admin/users');
+        $scores = Scores::findOrFail($id);
+        if(isset($scores->photo->file)) {
+            unlink(public_path() . $scores->photo->file);
+            $scores->delete();
+            return redirect('/home');
         } else {
-            $score->delete();
-            return redirect('/admin/users');
+            $scores->delete();
+            return redirect('/home');
         }
     }
 }

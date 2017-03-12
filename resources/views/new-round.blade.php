@@ -8,11 +8,13 @@
                     <div class="panel-heading">
                         Upload New Round
                     </div>
-
                     <div class="panel-body">
                         <div class="row">
+                            @include('include.form-errors')
+                        </div>
+                        <div class="row">
                             <div class="col-sm-3">
-                                <img src="{{$user->photo ? URL::to($user->photo->file) : 'http://placehold.it/400x400'}}" class="img-responsive img-rounded">
+                                <img src="{{$user->photo ? URL::to($user->photo->file) : 'http://localhost/my-archery-pal/public/images/placeholder.png'}}" class="img-responsive img-rounded">
                             </div>
 
                             <div class="col-sm-9">
@@ -30,7 +32,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    {!! Form::label('average', 'Average Score:') !!}
+                                    {!! Form::label('average', 'X\'s/10\'s:') !!}
                                     {!! Form::text('average', null,['class'=>'form-control']) !!}
                                 </div>
 
@@ -45,10 +47,6 @@
 
                                 {!!  Form::close() !!}
                             </div>
-                        </div>
-
-                        <div class="row">
-                            @include('include.form-errors')
                         </div>
                     </div>
                 </div>

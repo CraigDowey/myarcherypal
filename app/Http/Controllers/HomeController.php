@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Http\Requests\DeleteRequest;
 use App\Scores;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
 
 class HomeController extends Controller
 {
@@ -33,10 +37,10 @@ class HomeController extends Controller
         return view('home', compact('userInfo', 'scores'));
     }
 
-    public function destroy(Request $request, $id)
+    public function destroy($id)
     {
         $scores = Scores::findOrFail($id);
-        if($file = $request->file('photo_id')){
+        if(isset($scores->photo->file)) {
             unlink(public_path() . $scores->photo->file);
             $scores->delete();
             return redirect('/home');

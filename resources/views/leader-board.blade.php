@@ -16,7 +16,7 @@
                                     <th>Photo</th>
                                     <th>Name</th>
                                     <th>Round</th>
-                                    <th>Average</th>
+                                    <th>X's/10's</th>
                                     <th>Score</th>
                                     <th>Date</th>
                                 </tr>
@@ -27,7 +27,7 @@
                                         <tr>
                                             <td><img height="50" src="{{$recurve->photo ? URL::to($recurve->photo->file) : 'http://localhost/my-archery-pal/public/images/placeholder2.png'}}" ></td>
                                             <td>{{$recurve->name}}</td>
-                                            <td>{{$recurve->round ? $recurve->round->name : 'No Round Selected'}}</td>
+                                            <td>{{$recurve->round}}</td>
                                             <td>{{$recurve->average}}</td>
                                             <td>{{$recurve->score}}</td>
                                             <td>{{$recurve->created_at->diffForHumans()}}</td>
@@ -55,7 +55,7 @@
                                     <th>Photo</th>
                                     <th>Name</th>
                                     <th>Round</th>
-                                    <th>Average</th>
+                                    <th>X's/10's</th>
                                     <th>Score</th>
                                     <th>Date</th>
                                 </tr>
@@ -66,7 +66,7 @@
                                         <tr>
                                             <td><img height="50" src="{{$compound->photo ? URL::to($compound->photo->file) : 'http://localhost/my-archery-pal/public/images/placeholder2.png'}}" ></td>
                                             <td>{{$compound->name}}</td>
-                                            <td>{{$compound->round ? $compound->round->name : 'No Round Selected'}}</td>
+                                            <td>{{$compound->round}}</td>
                                             <td>{{$compound->average}}</td>
                                             <td>{{$compound->score}}</td>
                                             <td>{{$compound->created_at->diffForHumans()}}</td>
@@ -94,7 +94,7 @@
                                     <th>Photo</th>
                                     <th>Name</th>
                                     <th>Round</th>
-                                    <th>Average</th>
+                                    <th>X's/10's</th>
                                     <th>Score</th>
                                     <th>Date</th>
                                 </tr>
@@ -105,7 +105,7 @@
                                         <tr>
                                             <td><img height="50" src="{{$barebow->photo ? URL::to($barebow->photo->file) : 'http://localhost/my-archery-pal/public/images/placeholder2.png'}}" ></td>
                                             <td>{{$barebow->name}}</td>
-                                            <td>{{$barebow->round ? $barebow->round->name : 'No Round Selected'}}</td>
+                                            <td>{{$barebow->round}}</td>
                                             <td>{{$barebow->average}}</td>
                                             <td>{{$barebow->score}}</td>
                                             <td>{{$barebow->created_at->diffForHumans()}}</td>
@@ -133,7 +133,7 @@
                                     <th>Photo</th>
                                     <th>Name</th>
                                     <th>Round</th>
-                                    <th>Average</th>
+                                    <th>X's/10's</th>
                                     <th>Score</th>
                                     <th>Date</th>
                                 </tr>

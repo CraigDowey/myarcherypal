@@ -23,6 +23,6 @@ class ScoresCreateRequest extends Request
      */
     public function rules()
     {
-        return ['average' => 'required', 'round_id' => 'required', 'score' => 'required'];
+        return ['average' => 'required|max:3', 'round_id' => 'required', 'score' => 'required|max:4'];
     }
 }

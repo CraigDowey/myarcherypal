@@ -16,8 +16,6 @@ class CreateRoundsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->timestamps();
-
-            $table->foreign('id')->references('round_id')->on('scores');
         });
     }
 

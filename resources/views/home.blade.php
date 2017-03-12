@@ -22,7 +22,7 @@
                             <tr>
                                 <th>Score Sheet</th>
                                 <th>Round</th>
-                                <th>Average</th>
+                                <th>X's/10's</th>
                                 <th>Score</th>
                                 <th>Posted</th>
                                 <th>Delete Score</th>
