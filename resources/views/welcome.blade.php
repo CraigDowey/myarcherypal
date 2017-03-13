@@ -6,11 +6,11 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Welcome</div>
+                <div class="panel-heading">Welcome to My Archery Pal!</div>
 
                 <div class="panel-body">
                     <div class="col-sm-12">
-                        <h1>Content</h1>
+                        <p1>My Archery Pal is ...</p1>
 
                     </div>
                 </div>
