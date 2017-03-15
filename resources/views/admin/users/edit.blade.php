@@ -52,7 +52,7 @@
 
             {!!  Form::close() !!}
 
-            {!! Form::open(['method'=>'DELETE', 'action'=>['AdminUsersController@destroy', $user->id]]) !!}
+            {!! Form::open(['method'=>'DELETE', 'action'=>['AdminUsersController@destroy', $user->id], 'onsubmit' => 'return ConfirmDelete()']) !!}
 
             <div class="form-group">
                 {!!  Form::submit('Delete User', ['class'=>'btn btn-danger col-sm-6']) !!}

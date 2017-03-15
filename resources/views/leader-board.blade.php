@@ -145,7 +145,7 @@
                                             <td><img height="50" src="{{$longbow->photo ? URL::to($longbow->photo->file) : 'http://localhost/my-archery-pal/public/images/placeholder2.png'}}" ></td>
                                             <td>{{$longbow->name}}</td>
                                             <td>{{$longbow->round}}</td>
-                                            <td>{{$longbow->average}}</td>
+                                            <td>{{$longbow->Xs/10/s}}</td>
                                             <td>{{$longbow->score}}</td>
                                             <td>{{$longbow->created_at->diffForHumans()}}</td>
                                         </tr>

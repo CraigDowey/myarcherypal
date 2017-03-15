@@ -16,6 +16,11 @@ class CreateRolesTable extends Migration
             $table->increments('id');
             $table->string('name');
         });
+
+        DB::table('roles')->insert([
+            ['name' => 'Admin'],
+            ['name' => 'User']
+        ]);
     }
 
     /**

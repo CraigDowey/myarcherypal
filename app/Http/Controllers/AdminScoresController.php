@@ -102,10 +102,10 @@ class AdminScoresController extends Controller
         if(isset($scores->photo->file)) {
             unlink(public_path() . $scores->photo->file);
             $scores->delete();
-            return redirect('/home');
+            return redirect('/admin');
         } else {
             $scores->delete();
-            return redirect('/home');
+            return redirect('/admin');
         }
     }
 }

@@ -23,6 +23,6 @@ class ScoresCreateRequest extends Request
      */
     public function rules()
     {
-        return ['X\'s/10\'s' => 'required|max:3', 'round_id' => 'required', 'score' => 'required|max:4'];
+        return ['XsOr10s' => 'required|max:3', 'round_id' => 'required', 'score' => 'required|max:4'];
     }
 }

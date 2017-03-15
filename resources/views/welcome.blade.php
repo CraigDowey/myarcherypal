@@ -10,7 +10,15 @@
 
                 <div class="panel-body">
                     <div class="col-sm-12">
-                        <p1>My Archery Pal is ...</p1>
+                        <p>My Archery Pal is ...
+
+                        </p>
+                        <p>
+                        Currently rounds that are supported are:
+                        </p>
+                        <p>
+                            - Portsmouth 500
+                        </p>
 
                     </div>
                 </div>

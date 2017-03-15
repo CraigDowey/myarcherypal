@@ -16,6 +16,13 @@ class CreateStylesTable extends Migration
             $table->increments('id');
             $table->string('name');
         });
+
+        DB::table('styles')->insert([
+            ['name' => 'Recurve Archer'],
+            ['name' => 'Barebow Archer'],
+            ['name' => 'Longbow Archer'],
+            ['name' => 'Compound Archer']
+        ]);
     }
 
     /**

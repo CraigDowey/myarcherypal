@@ -20,6 +20,11 @@
                                 {!! Form::model($user, ['method'=>'PATCH', 'action'=> ['UsersController@update', $user->id],'files'=>true]) !!}
 
                                     <div class="form-group">
+                                        {!! Form::label('photo_id', 'Photo:') !!}
+                                        {!! Form::file('photo_id', null, ['class'=>'form-control']) !!}
+                                    </div>
+
+                                    <div class="form-group">
                                         {!! Form::label('name', 'Name:') !!}
                                         {!! Form::text('name', null, ['class'=>'form-control']) !!}
                                     </div>
@@ -30,12 +35,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        {!! Form::label('photo_id', 'Photo:') !!}
-                                        {!! Form::file('photo_id', null, ['class'=>'form-control']) !!}
-                                    </div>
-
-                                    <div class="form-group">
-                                        {!! Form::label('style_id', 'Style:') !!}
+                                        {!! Form::label('style_id', 'Style:' , ['id' => 'style_label'] )!!}
                                         {!! Form::select('style_id', [''=>'Choose Options'] + $styles, null, ['class'=>'form-control']) !!}
                                     </div>
 
@@ -57,6 +57,19 @@
                         <div class="row">
                                 @include('include.form-errors')
                         </div>
+                        <script>
+                            function hideBox() {
+                                var x = document.getElementById("style_id");
+                                var y = x.options[x.selectedIndex].value;
+
+                                if (y == 1 || y == 2 || y == 3 || y == 4) {
+                                    document.getElementById("style_id").style.display = "none";
+                                    document.getElementById("style_label").style.display = "none";
+                                    console.log(y);
+                                }
+                            }
+                            window.onload = hideBox();
+                        </script>
                     </div>
                 </div>
             </div>

@@ -42,7 +42,7 @@
 
             {!!  Form::close() !!}
 
-            {!! Form::model($scores, ['method'=>'DELETE', 'action'=> ['AdminScoresController@destroy', $scores->id], 'files'=>true]) !!}
+            {!! Form::model($scores, ['method'=>'DELETE', 'action'=> ['AdminScoresController@destroy', $scores->id], 'onsubmit' => 'return ConfirmDelete()' ,'files'=>true]) !!}
 
             <div class="form-group">
                 {!!  Form::submit('Delete Post', ['class'=>'btn btn-danger col-sm-6']) !!}

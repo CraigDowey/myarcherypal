@@ -114,10 +114,10 @@ class AdminUsersController extends Controller
         if(isset($user->photo->file)) {
             unlink(public_path() . $user->photo->file);
             $user->delete();
-            return redirect('/home');
+            return redirect('/admin');
         } else {
             $user->delete();
-            return redirect('/home');
+            return redirect('/admin');
         }
     }
 }

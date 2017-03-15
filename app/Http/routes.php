@@ -8,8 +8,6 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::resource('/welcome', 'Controller');
-
 Route::get('/leader-board','LeaderController@index');
 
 Route::resource('/home', 'HomeController');
