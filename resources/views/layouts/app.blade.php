@@ -13,6 +13,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="/my-archery-pal/public/css/style.css">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>
@@ -53,15 +54,15 @@
                     </ul>
                 @else
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ url('/home') }}">Home</a></li>
+                        <li><a href="{{ url('user/home') }}">Home</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ url('/new-round') }}">New Round</a></li>
+                        <li><a href="{{ url('user/new-round') }}">New Round</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ url('/leader-board') }}">Leader Board</a></li>
+                        <li><a href="{{ url('leader-board') }}">Leader Board</a></li>
                     </ul>
                 @endif
 
@@ -81,11 +82,11 @@
                             <ul class="dropdown-menu" role="menu">
                                 @if (Auth::user()->isAdmin())
                                     <li><a href="{{ url('/admin') }}"><i class="fa fa-btn"></i>Admin Section</a></li>
-                                    <li><a href="{{ url('/edit-user') }}"><i class="fa fa-btn"></i>Edit Account Details</a></li>
+                                    <li><a href="{{ url('user/edit-user') }}"><i class="fa fa-btn"></i>Edit Account Details</a></li>
                                     <li class="divider"></li>
                                     <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                                 @elseif (Auth::user()->isUser())
-                                    <li><a href="{{ url('/edit-user') }}"><i class="fa fa-btn"></i>Edit Account Details</a></li>
+                                    <li><a href="{{ url('user/edit-user') }}"><i class="fa fa-btn"></i>Edit Account Details</a></li>
                                     <li class="divider"></li>
                                     <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                                 @endif
@@ -101,8 +102,13 @@
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="/my-archery-pal/public/js/calcInput.js"></script>
+    <script src="/my-archery-pal/public/js/buttons.js"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
     <script>

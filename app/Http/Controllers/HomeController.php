@@ -34,7 +34,7 @@ class HomeController extends Controller
     {
         $userInfo = User::find(Auth::id());
         $scores = User::find(Auth::id())->scores;
-        return view('home', compact('userInfo', 'scores'));
+        return view('user/home', compact('userInfo', 'scores'));
     }
 
     public function destroy($id)
@@ -43,10 +43,10 @@ class HomeController extends Controller
         if(isset($scores->photo->file)) {
             unlink(public_path() . $scores->photo->file);
             $scores->delete();
-            return redirect('/home');
+            return redirect('user/home');
         } else {
             $scores->delete();
-            return redirect('/home');
+            return redirect('user/home');
         }
     }
 }

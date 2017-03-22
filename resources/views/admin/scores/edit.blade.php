@@ -27,8 +27,8 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('average', 'Average Score:') !!}
-                {!! Form::text('average', null,['class'=>'form-control']) !!}
+                {!! Form::label('XsOr10s', 'X\'s/10\'s:') !!}
+                {!! Form::text('XsOr10s', null,['class'=>'form-control']) !!}
             </div>
 
             <div class="form-group">

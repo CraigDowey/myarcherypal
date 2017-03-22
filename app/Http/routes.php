@@ -6,15 +6,15 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('user/home', 'HomeController@index');
 
 Route::get('/leader-board','LeaderController@index');
 
-Route::resource('/home', 'HomeController');
+Route::resource('user/home', 'HomeController');
 
-Route::resource('/edit-user', 'UsersController');
+Route::resource('user/edit-user', 'UsersController');
 
-Route::resource('/new-round', 'ScoresController');
+Route::resource('user/new-round', 'ScoresController');
 
 Route::group(['middleware'=>'admin'] ,function(){
     Route::get('/admin', function(){

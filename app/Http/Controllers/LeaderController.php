@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Round;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -11,43 +12,46 @@ class LeaderController extends Controller
 {
     public function index()
     {
+
+        $rounds = Round::lists('name','id')->all();
+
         $recurves = User::with('scores')
-            ->select('users.name', 'rounds.name AS round', 'XsOr10s', 'score', 'scores.created_at', 'scores.photo_id')
+            ->select('users.name', 'rounds.name AS round', 'tie_breaker', 'score', 'scores.created_at', 'scores.photo_id')
             ->join('scores', 'users.id', '=', 'scores.user_id')
             ->join('rounds', 'rounds.id', '=', 'scores.round_id')
             ->where('style_id', '1')
-            ->orderBy('round', 'ASC')
+//            ->orderBy('round', 'ASC')
             ->orderBy('score', 'DESC')
-            ->orderBy('XsOr10s', 'DESC')
+            ->orderBy('tie_breaker', 'DESC')
             ->get();
         $compounds = User::with('scores')
-            ->select('users.name', 'rounds.name AS round', 'XsOr10s', 'score', 'scores.created_at', 'scores.photo_id')
+            ->select('users.name', 'rounds.name AS round', 'tie_breaker', 'score', 'scores.created_at', 'scores.photo_id')
             ->join('scores', 'users.id', '=', 'scores.user_id')
             ->join('rounds', 'rounds.id', '=', 'scores.round_id')
             ->where('style_id', '4')
-            ->orderBy('round', 'ASC')
+//            ->orderBy('round', 'ASC')
             ->orderBy('score', 'DESC')
-            ->orderBy('XsOr10s', 'DESC')
+            ->orderBy('tie_breaker', 'DESC')
             ->get();
         $barebows = User::with('scores')
-            ->select('users.name', 'rounds.name AS round', 'XsOr10s', 'score', 'scores.created_at', 'scores.photo_id')
+            ->select('users.name', 'rounds.name AS round', 'tie_breaker', 'score', 'scores.created_at', 'scores.photo_id')
             ->join('scores', 'users.id', '=', 'scores.user_id')
             ->join('rounds', 'rounds.id', '=', 'scores.round_id')
             ->where('style_id', '2')
-            ->orderBy('round', 'ASC')
+//            ->orderBy('round', 'ASC')
             ->orderBy('score', 'DESC')
-            ->orderBy('XsOr10s', 'DESC')
+            ->orderBy('tie_breaker', 'DESC')
             ->get();
         $longbows = User::with('scores')
-            ->select('users.name', 'rounds.name AS round', 'XsOr10s', 'score', 'scores.created_at', 'scores.photo_id')
+            ->select('users.name', 'rounds.name AS round', 'tie_breaker', 'score', 'scores.created_at', 'scores.photo_id')
             ->join('scores', 'users.id', '=', 'scores.user_id')
             ->join('rounds', 'rounds.id', '=', 'scores.round_id')
             ->where('style_id', '3')
-            ->orderBy('round', 'ASC')
+//            ->orderBy('round', 'ASC')
             ->orderBy('score', 'DESC')
-            ->orderBy('XsOr10s', 'DESC')
+            ->orderBy('tie_breaker', 'DESC')
             ->get();
 
-        return view('/leader-board', compact('recurves', 'compounds', 'barebows', 'longbows'));
+        return view('leader-board', compact('recurves', 'compounds', 'barebows', 'longbows', 'rounds'));
     }
 }

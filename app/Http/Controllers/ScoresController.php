@@ -30,7 +30,7 @@ class ScoresController extends Controller
     {
         $user = User::find(Auth::id());
         $rounds = Round::lists('name','id')->all();
-        return view('new-round', compact('user', 'rounds'));
+        return view('user/new-round', compact('user', 'rounds'));
     }
 
     /**
@@ -41,7 +41,7 @@ class ScoresController extends Controller
     public function create()
     {
         $rounds = Round::lists('name', 'id')->all();
-        return view('new-round', compact('rounds'));
+        return view('user/new-round', compact('rounds'));
     }
 
     /**
@@ -61,7 +61,7 @@ class ScoresController extends Controller
             $input['photo_id'] = $photo->id;
         }
         $user->scores()->create($input);
-        return redirect('/home');
+        return redirect('user/home');
     }
 
     /**
@@ -81,6 +81,6 @@ class ScoresController extends Controller
             $input['photo_id'] = $photo->id;
         }
         Auth::user()->scores()->whereId($id)->first()->update($input);
-        return redirect('/home');
+        return redirect('user/home');
     }
 }

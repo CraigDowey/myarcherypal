@@ -18,7 +18,7 @@ class CreateRoundsTable extends Migration
         });
 
         DB::table('roles')->insert([
-            ['name' => 'Portsmouth 500']
+            ['name' => 'Portsmouth'],
         ]);
     }
 

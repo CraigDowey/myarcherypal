@@ -31,7 +31,7 @@ class UsersController extends Controller
     {
         $user = User::find(Auth::id());
         $styles = Style::lists('name','id')->all();
-        return view('edit-user', compact('user', 'styles'));
+        return view('user/edit-user', compact('user', 'styles'));
     }
 
     /**
@@ -55,7 +55,7 @@ class UsersController extends Controller
             $input['photo_id'] = $photo->id;
         }
         User::create($input);
-        return redirect('home');
+        return redirect('user/home');
     }
 
     /**
@@ -68,7 +68,7 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
         $styles = Style::lists('name','id')->all();
-        return view('home', compact('user','styles'));
+        return view('user/home', compact('user','styles'));
     }
 
     /**
@@ -94,7 +94,7 @@ class UsersController extends Controller
             $input['photo_id'] = $photo->id;
         }
         $user->update($input);
-        return redirect('home');
+        return redirect('user/home');
     }
 
     /**
@@ -109,10 +109,10 @@ class UsersController extends Controller
         if(isset($user->photo->file)) {
             unlink(public_path() . $user->photo->file);
             $user->delete();
-            return redirect('/home');
+            return redirect('user/home');
         } else {
             $user->delete();
-            return redirect('/home');
+            return redirect('user/home');
         }
     }
 }

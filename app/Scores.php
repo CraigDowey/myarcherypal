@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Scores extends Model
 {
-    protected $fillable = ['round_id', 'photo_id', 'Xs/10s', 'score'];
+    protected $fillable = ['round_id', 'photo_id', 'tie_breaker', 'score', 'average_score'];
 
     public function user(){
         return $this->belongsTo('App\User');
