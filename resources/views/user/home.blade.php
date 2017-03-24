@@ -24,6 +24,7 @@
                                 <th>Round</th>
                                 <th>Score</th>
                                 <th>Average</th>
+                                <th>X's/10's</th>
                                 <th>Posted</th>
                                 <th>Delete Score</th>
                             </tr>
@@ -35,8 +36,9 @@
                                     <tr>
                                         <td><img height="50" src="{{$score->photo ? URL::to($score->photo->file) : 'http://localhost/my-archery-pal/public/images/placeholder2.png'}}" ></td>
                                         <td>{{$score->round ? $score->round->name : 'No Round Selected'}}</td>
-                                        <td>{{$score->score}}</td>
-                                        <td>{{$score->average_score}}</td>
+                                        <td>{{$score->calc_score}}</td>
+                                        <td>{{$score->average_arrow}}</td>
+                                        <td>{{$score->tens}}</td>
                                         <td>{{$score->created_at->diffForHumans()}}</td>
                                         <td>
                                         {!! Form::open(['method'=>'DELETE', 'action'=>['HomeController@destroy', $score->id], 'onsubmit' => 'return ConfirmDelete()']) !!}

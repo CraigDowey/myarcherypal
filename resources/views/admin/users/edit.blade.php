@@ -3,7 +3,10 @@
 
 @section('content')
 
-    <h1>Edit Users</h1>
+    <h1>Edit User</h1>
+    <div class="row">
+        @include('include.form-errors')
+    </div>
 
     <div class="row">
 
@@ -47,23 +50,10 @@
             </div>
 
             <div class="form-group">
-                {!!  Form::submit('Update User', ['class'=>'btn btn-primary col-sm-6']) !!}
-            </div>
-
-            {!!  Form::close() !!}
-
-            {!! Form::open(['method'=>'DELETE', 'action'=>['AdminUsersController@destroy', $user->id], 'onsubmit' => 'return ConfirmDelete()']) !!}
-
-            <div class="form-group">
-                {!!  Form::submit('Delete User', ['class'=>'btn btn-danger col-sm-6']) !!}
+                {!!  Form::submit('Update User', ['class'=>'btn btn-primary col-sm-12']) !!}
             </div>
 
             {!!  Form::close() !!}
         </div>
     </div>
-
-    <div class="row">
-        @include('include.form-errors')
-    </div>
-
 @stop

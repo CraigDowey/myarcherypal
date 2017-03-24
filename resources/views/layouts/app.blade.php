@@ -41,7 +41,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    My Archery Pal
+                    My Archery Pal V1.1
                 </a>
             </div>
 
@@ -107,7 +107,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-    <script src="/my-archery-pal/public/js/calcInput.js"></script>
+    <script src="/my-archery-pal/public/js/calcinputt.js"></script>
     <script src="/my-archery-pal/public/js/buttons.js"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 

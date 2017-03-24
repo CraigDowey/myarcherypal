@@ -17,9 +17,9 @@ class CreateScoresTable extends Migration
             $table->integer('photo_id')->unsigned()->index();
             $table->integer('user_id')->unsigned()->index();
             $table->integer('round_id')->unsigned()->index();
-            $table->integer('tie_breaker');
-            $table->integer('average_score');
-            $table->integer('score');
+            $table->integer('tens');
+            $table->integer('average_arrow');
+            $table->integer('calc_score');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

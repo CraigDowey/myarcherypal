@@ -40,7 +40,7 @@ function addDisplayBoxes(){
 
     for(i = 0; i < 6; i++){
         htmlDisplayCode += displayBoxHtmlStart + i + displayBoxHtmlEnd;
-    } 
+    }
 
     htmlDisplayCode += '</div>';
 
@@ -73,7 +73,7 @@ function setOnClickListeners(){
                     endOfGoes = false;
                 }
 
-            } 
+            }
 
 
             if (endOfGoes){
@@ -86,7 +86,7 @@ function setOnClickListeners(){
 
                     var tempScore = $(displayChildren[i]).text();
 
-                    if (tempScore == 'X'){
+                    if (tempScore == 'X' || tempScore == 10){
                         tempScore = 10;
                         tieBreaker++;
                     }
@@ -134,14 +134,14 @@ function setOnClickListeners(){
                             'background-color': '#ffcc00'
                         });
                         break;
-                        
+
 
                 }
 
 
                 $('#score').text(totalScore);
                 //changed these two lines
-                $('#average_score').text(Number(averageScore).toFixed(2));
+                $('#average_score').text(Number(averageScore).toFixed(1));
                 $('#tie_breaker').text(tieBreaker);
 
                 //Current display-container is no longer active
@@ -150,7 +150,7 @@ function setOnClickListeners(){
                 addDisplayBoxes();
                 //Reset current go
                 currentGo = 0;
-                //Set on click listeners for editting score 
+                //Set on click listeners for editting score
                 setDisplayBoxOnClick();
             }
 

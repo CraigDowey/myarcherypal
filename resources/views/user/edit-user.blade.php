@@ -12,7 +12,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-sm-3">
-                                <img src="{{$user->photo ? URL::to($user->photo->file) : 'http://placehold.it/400x400'}}" class="img-responsive img-rounded">
+                                <img src="{{$user->photo ? URL::to($user->photo->file) : 'http://localhost/my-archery-pal/public/images/placeholder.png'}}" class="img-responsive img-rounded">
                             </div>
 
                             <div class="col-sm-9">

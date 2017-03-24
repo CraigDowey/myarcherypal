@@ -3,8 +3,6 @@
 
 @section('content')
 
-    <h1>Create Post</h1>
-
     <div class="row">
 
         {!! Form::open(['method'=>'POST', 'action'=> 'AdminScoresController@store', 'files'=>true]) !!}
@@ -20,15 +18,19 @@
         </div>
 
         <div class="form-group">
-            {!! Form::label('XsOr10s', 'X\'s/10\'s:') !!}
-            {!! Form::text('XsOr10s', null,['class'=>'form-control']) !!}
+            {!! Form::label('average_arrow', 'Average:') !!}
+            {!! Form::text('average_arrow', null,['class'=>'form-control']) !!}
         </div>
 
         <div class="form-group">
-            {!! Form::label('score', 'Total:') !!}
-            {!! Form::text('score', null,['class'=>'form-control']) !!}
+            {!! Form::label('tens', 'Xs/10s:') !!}
+            {!! Form::text('tens', null,['class'=>'form-control']) !!}
         </div>
 
+        <div class="form-group">
+            {!! Form::label('calc_score', 'Total:') !!}
+            {!! Form::text('calc_score', null,['class'=>'form-control']) !!}
+        </div>
 
         <div class="form-group">
             {!!  Form::submit('Upload Score', ['class'=>'btn btn-primary']) !!}

@@ -17,7 +17,7 @@ class CreateRoundsTable extends Migration
             $table->string('name');
         });
 
-        DB::table('roles')->insert([
+        DB::table('rounds')->insert([
             ['name' => 'Portsmouth'],
         ]);
     }
