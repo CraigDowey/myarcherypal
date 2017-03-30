@@ -33,8 +33,8 @@ class AdminUsersController extends Controller
      */
     public function create()
     {
-        $styles = Style::lists('name', 'id')->all();
-        $roles = Role::lists('name', 'id')->all();
+        $styles = Style::pluck('name', 'id')->all();
+        $roles = Role::pluck('name', 'id')->all();
         return view('admin.users.create', compact('users', 'styles', 'roles'));
     }
 
@@ -71,8 +71,8 @@ class AdminUsersController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        $styles = Style::lists('name','id')->all();
-        $roles = Role::lists('name','id')->all();
+        $styles = Style::pluck('name','id')->all();
+        $roles = Role::pluck('name','id')->all();
         return view('admin.users.edit', compact('user', 'styles', 'roles'));
     }
 

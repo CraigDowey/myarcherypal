@@ -30,7 +30,7 @@ class UsersController extends Controller
     public function index()
     {
         $user = User::find(Auth::id());
-        $styles = Style::lists('name','id')->all();
+        $styles = Style::pluck('name','id')->all();
         return view('user/edit-user', compact('user', 'styles'));
     }
 
@@ -67,7 +67,7 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        $styles = Style::lists('name','id')->all();
+        $styles = Style::pluck('name','id')->all();
         return view('user/home', compact('user','styles'));
     }
 

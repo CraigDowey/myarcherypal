@@ -29,7 +29,7 @@ class ScoresController extends Controller
     public function index()
     {
         $user = User::find(Auth::id());
-        $rounds = Round::lists('name','id')->all();
+        $rounds = Round::pluck('name','id')->all();
         return view('user/new-round', compact('user', 'rounds'));
     }
 

@@ -41,7 +41,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img height="50" width="50" src="http://localhost/my-archery-pal/public/images/logo.png" >
+                    My Archery Pal V2.1
                 </a>
             </div>
 

@@ -33,7 +33,7 @@ class AdminScoresController extends Controller
      */
     public function create()
     {
-        $rounds = Round::lists('name', 'id')->all();
+        $rounds = Round::pluck('name', 'id')->all();
         return view('admin.scores.create', compact('rounds'));
     }
 
@@ -66,7 +66,7 @@ class AdminScoresController extends Controller
     public function edit($id)
     {
         $scores = Scores::findOrFail($id);
-        $rounds = Round::lists('name','id')->all();
+        $rounds = Round::pluck('name','id')->all();
         return view('admin.scores.edit', compact('rounds', 'scores'));
     }
 
