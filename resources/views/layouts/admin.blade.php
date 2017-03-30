@@ -40,7 +40,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Home</a>
+            <a class="navbar-brand">Admin Section</a>
         </div>
 
         <ul class="nav navbar-top-links navbar-right">
@@ -49,7 +49,7 @@
                     <i class="fa fa-user fa-fw"></i> {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="{{ url('/home') }}"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <li><a href="{{ url('user/home') }}"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     </li>
                     <li class="divider"></li>
                     <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -69,14 +69,6 @@
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="{{route('admin.users.create')}}">Create User</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Scores <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{{route('admin.scores.create')}}">Create Scores</a>
                             </li>
                         </ul>
                     </li>

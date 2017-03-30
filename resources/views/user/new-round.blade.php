@@ -55,16 +55,16 @@
                                     </div>
                                         <div class="all-score-container">
                                             <div class="score-container">
-                                                <h3 class="score-text">Total Score: </h3>
-                                                <h3 id="score" class="score-text">0</h3>
+                                                <h3 class="form-control">Total: </h3>
+                                                <h3 id="score" class="form-control">0</h3>
                                             </div>
                                             <div class="score-container">
-                                                <h3 class="score-text">X's/10's: </h3>
-                                                <h3 id="tie_breaker" class="score-text">0</h3>
+                                                <h3 class="form-control">X's/10's: </h3>
+                                                <h3 id="tie_breaker" class="form-control">0</h3>
                                             </div>
-                                            <div class="score-container average-score-container">
-                                                <h3 class="score-text">Average Score: </h3>
-                                                <h3 id="average_score" class="score-text">0.0</h3>
+                                            <div class="score-container">
+                                                <h3 class="form-control">Average: </h3>
+                                                <h3 id="average_score" class="form-control">0.0</h3>
                                             </div>
                                         </div>
                                     <div class="calc-app-container cal-container">

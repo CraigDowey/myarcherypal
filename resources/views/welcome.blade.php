@@ -21,6 +21,9 @@
                             <p>
                                 - Portsmouth
                             </p>
+                            <p>
+                                Please contact administration if you wish to change your e-maill address or password at admin@example.com
+                            </p>
                         </div>
                         <div class="col-sm-6">
                             <img src="http://localhost/my-archery-pal/public/images/archery_targets.jpg" class="img-responsive img-rounded">

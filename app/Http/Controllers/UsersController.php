@@ -81,13 +81,9 @@ class UsersController extends Controller
     public function update(UsersEditRequest $request, $id)
     {
         $user = User::findOrFail($id);
-        if(trim($request->password) == ''){
-            $input = $request->except('password');
-        } else {
-            $input = $request->all();
-            $input['password'] = bcrypt($request->password);
-        }
+        $input = $request->all();
         if($file = $request->file('photo_id')){
+            unlink(public_path() . $user->photo->file);
             $name = time() . $file->getClientOriginalName();
             $file->move('images', $name);
             $photo = Photo::create(['file'=>$name]);

@@ -93,6 +93,7 @@ class AdminUsersController extends Controller
             $input['password'] = bcrypt($request->password);
         }
         if($file = $request->file('photo_id')){
+            unlink(public_path() . $user->photo->file);
             $name = time() . $file->getClientOriginalName();
             $file->move('images', $name);
             $photo = Photo::create(['file'=>$name]);

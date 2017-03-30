@@ -18,11 +18,11 @@ class UsersEditRequest extends Request
 
     /**
      * Get the validation rules that apply to the request.
-     *
+     * 'name' => 'unique:users', 'email' => 'unique:users',
      * @return array
      */
     public function rules()
     {
-        return ['name' => 'required', 'email' => 'required', 'style_id' => 'required'];
+        return ['style_id' => 'required'];
     }
 }
